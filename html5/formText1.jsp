@@ -3,9 +3,11 @@ formText1.jsp
 <% request.setCharacterEncoding("utf-8"); %>
 <!dovtype html>  <!-- formText1.jsp -->
 <html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>폼 학습</title></head>
+<title>폼 학습</title></head>
 <body>
 <section>
+<form action="http://localhost:8080/formText1.jsp" method="post">
+<field>사용자 정보<legend>
  <h2>JSP form</h2>
  <section>
   <h2>아이디: <%= request.getParameter("namex")%> <br/></h2>
