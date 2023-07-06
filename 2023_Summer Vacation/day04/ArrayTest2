@@ -1,0 +1,27 @@
+package dat04;
+public class ArrayTest2 {
+
+	public static double average(int[] ary) 
+	{
+		// TODO Auto-generated method stub
+	
+		double sum = 0;
+		for(int i=0;i<ary.length;i++)
+			sum+=ary[i];		
+		
+		return sum /ary.length;
+	}
+	
+	public static void main(String[] args){
+		int ary[] = {581,512,527,495,423,141,236};
+		
+		System.out.printf("하루평균 사용자: %.2f",average(ary));
+		
+	
+	}
+
+}
+// 문제1) 이번 한 주간 사관학교 스터디에 접속한 사용자수는 위와 같다.
+//  	 하루 평균 접속자를 출력 예와 같이 구하도록 average() 메소드를 구하고 출력 예시 하루평균 사용자: 416.43명
+
+
