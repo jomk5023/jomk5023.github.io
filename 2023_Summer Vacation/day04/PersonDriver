@@ -1,0 +1,46 @@
+package dat04;
+
+public class PersonDriver {
+
+	public static void main(String[] args) {
+	
+		Person minkyu= new Person("민규",24);
+		minkyu.personInfo();
+		minkyu.setModel("조민규");
+		System.out.println(minkyu.getModel());
+	}
+
+}
+
+
+
+
+
+class Person{
+	
+	private String name;
+	int age;
+	
+	public Person() {
+		
+	}
+	public Person(String name, int age)
+	{
+		this.name=name;
+		this.age = age;
+	}
+	
+	public void setModel(String name) {
+		this.name=name;
+	}
+	public String getModel() {
+		return name;
+	}
+	public void personInfo() {
+		System.out.println("==== 사람 객체 정보 ====");
+		System.out.println("이름: "+name+"\t나이: "+age);
+		System.out.println("======================");
+	}
+}
+
+
