@@ -1,0 +1,49 @@
+package dat04;
+
+public class CarDriver {
+
+	public static void main(String[] args) {
+		// 모델: 아반떼
+		// 최고속도 : 220
+		Car avante= new Car("아반떼",220);
+		avante.carInfo();
+		avante.setModel("뉴아반떼");
+		System.out.println(avante.getModel());
+	}
+
+}
+
+
+
+
+
+class Car{
+	// 추상화, 은닉화(한개는)
+	// 은닉화하기 String model, int maxspeed
+	// setModel,getModel 메소드 만들기
+	// void carInfo() 메소드 만들기
+	private String model;
+	int maxspeed;
+	
+	public Car() {
+		
+	}
+	public Car(String model, int maxspeed)
+	{
+		this.model=model;
+		this.maxspeed = maxspeed;
+	}
+	public void setModel(String model) {
+		this.model=model;
+	}
+	public String getModel() {
+		return model;
+	}
+	public void carInfo() {
+		System.out.println("==== 자동차 객체 정보 ====");
+		System.out.println("모델명: "+model+"\t최고속도: "+maxspeed);
+		System.out.println("======================");
+	}
+}
+
+
