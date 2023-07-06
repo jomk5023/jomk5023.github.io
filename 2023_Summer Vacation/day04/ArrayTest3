@@ -1,0 +1,28 @@
+package dat04;
+
+public class ArrayTest3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//2차원 배열
+		int [][] arr = new int[4][4];
+		/*
+		 * 1 2 3 4
+		 * 5 6 7 8 
+		 * 9 10 11 12
+		 * 13 14 15 16
+		 */
+		// int num=1;
+		for(int i=0;i<4;i++) {  // 행 반복
+			for(int j=0;j<4;j++) {  // 열 반복
+				arr[i][j]=(i*4)+(j+1);    //  그냥 num써도 됨
+				// num++;
+				System.out.printf(arr[i][j]+ " ");
+			}
+			System.out.println();  // 줄바꿈
+		}
+		
+	}
+
+}
