@@ -67,11 +67,13 @@
         </div>
         <div class="navigation">
             <a href="#">홈</a>
-            <a href="#">지진</a>
+            <a href="https://ysw1mst.github.io/Smartcity/">지진</a>
             <a href="#">태풍</a>
             <a href="#">홍수</a>
             <a href="#">재난현황</a>
-            <a href="#">비상연락망</a>
+            <a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/ppn/emg/SDIJKM5602.html?menuSeq=596">비상연락망</a>
+
+         
         </div>
         <section>
             <section>
@@ -81,39 +83,11 @@
                 <p>대구에서 !@!#@!# 발생</p>
                 <p>부산에서 !@!#@!# 발생</p>
             </section>
-            <section>
-                <div id="map"></div> <!-- 지도를 표시할 div 요소 추가 -->
-                <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=6lcb5pk9bx" charset="utf-8"></script>
-                <script>
-                    var map;
-                    var markers = [];
-                    var currentLocationMarker;
-                    var currentLocationInfoWindow;
+            <section><h3 id="chapter1">대한민국 지도</h3>
+                <img src="./korea.jpg" alt="대한민국"/>
+              </seciton>
 
-                    function initMap() {
-                        getLocation();
-                    }
 
-                    function getLocation() {
-                        if (navigator.geolocation) {
-                            navigator.geolocation.getCurrentPosition(showPosition, showError);
-                        } else {
-                            alert("이 브라우저에서는 위치 정보를 지원하지 않습니다.");
-                        }
-                    }
-
-                    function showPosition(position) {
-                        var latitude = position.coords.latitude;
-                        var longitude = position.coords.longitude;
-
-                        var mapOptions = {
-                            center: new naver.maps.LatLng(latitude, longitude),
-                            zoom: 17
-                        };
-                        map = new naver.maps.Map(document.getElementById("map"), mapOptions);
-                    }
-                </script>
-            </section>
         </section>
         <div class="content">
             <h2>환영합니다!</h2>
