@@ -5,76 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DisasterAlert+</title>
     <style>
-        body {  
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0; /* 웹 페이지 전체 크기를 모바일 화면에 맞게 변경 */
-        }
-
-        h1 {
-            color: #007BFF;
-        }
-
-        p {
-            color: #333;
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 20px; /* 전체 컨텐츠의 패딩을 추가 */
-        }
-
-        .header {
-            background-color: #f2f2f2;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: center;
-            background-color: #007BFF;
-            padding: 10px;
-        }
-
-        .navigation a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .content {
-            padding: 20px;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #f2f2f2;
-        }
+        /* 기타 스타일들 */
 
         #map {
             width: 100%;
-            height: 300px; /* 지도의 높이를 300px로 지정 */
+            height: 300px;
+        }
+
+        /* 새로 추가한 스타일 */
+        .map-section {
+            display: flex;
+        }
+
+        .map-section img {
+            width: 50%;
+            margin-right: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>DisasterAlert+</h1>
-        </div>
-        <div class="navigation">
-            <a href="#">홈</a>
-            <a href="https://ysw1mst.github.io/Smartcity/">지진</a>
-            <a href="#">태풍</a>
-            <a href="#">홍수</a>
-            <a href="#">재난현황</a>
-            <a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/ppn/emg/SDIJKM5602.html?menuSeq=596">비상연락망</a>
+        <!-- 기타 내용들 -->
 
-         
-        </div>
         <section>
             <section>
                 <h3 id="chapter1">현재 재난상황</h3>
@@ -83,20 +35,14 @@
                 <p>대구에서 !@!#@!# 발생</p>
                 <p>부산에서 !@!#@!# 발생</p>
             </section>
-            <section><h3 id="chapter1">대한민국 지도</h3>
-                <img src="./korea.jpg" alt="대한민국"/>
-              </seciton>
-
-
+            <div class="map-section">
+                <div id="map"></div>
+                <img src="./korea.jpg" alt="대한민국">
+            </div>
         </section>
-        <div class="content">
-            <h2>환영합니다!</h2>
-            <p>이곳은 간단한 홈페이지의 예시입니다. 원하는 내용으로 커스터마이즈하여 사용하시면 됩니다.</p>
-            <p>추가적인 내용이 필요하다면 이곳에 작성해주세요.</p>
-        </div>
-        <div class="footer">
-            <p>&copy; 2023. DisasterAlert+. All rights reserved.</p>
-        </div>
+
+        <!-- 기타 내용들 -->
+
     </div>
 </body>
 </html>
