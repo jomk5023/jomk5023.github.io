@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>홍수</title>
+  <style>
+    /*웹 페이지 상단의 사용자가 원하는 페이지로 이동*/
+    nav{
+    	font-size: 12pt;
+    	font-family: 'PT Sans', Arial, Sans-serif;
+    	position: relative;
+    }
+    nav ul{
+    	padding: 0;
+    	margin: 0 auto;
+    	width: auto;
+    }
+    nav li{
+    }
+    /*배너 바 크기*/
+    nav a{
+    	line-height: 50px;
+      height: 50px;
+    }
+
+    nav li a{
+    	box-sizing: border-box;
+    	-moz-box-sizing: border-box;
+    	-webkit-box-sizing: border-box;
+    }
+    nav li:last-child a{
+    	border-right: 0;
+    }
+    nav a:hover, nav a:active{
+    }
+    nav a#pull{
+    	display: none;
+    }
+    /* 모바일에서 웹 페이지 만질때 사용자 경험을 개선하거나 텍스트 선택과 관련된 동작을 제어하는 데 활용 */
+    html {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    /* 배너 색 */
+    ul {
+      margin: 0;
+      padding: 0;
+      background-color: #dab85d;
+      text-align: center;
+    }
+
+
+    li {
+      display: inline-block;
+    }
+
+    /* 배너 글씨 색과 간격*/
+    li a {
+      color: #FFFFFF;
+      text-align: center;
+      padding: 14.5px 16px;
+      text-decoration: none;
+    }
+
+    /* 호버 상태일때 색상 */
+    li a:hover {
+      color: #FFD400;
+      font-weight: normal;
+    }
+    
+    .menu {
+      width: 5000px;
+      height: 50px;
+      text-align: center;
+      max-width: 100%;
+      background-position: center;
+      background-size: cover;
+      background-color: #333333;
+      color: white;
+      position: absolute;
+      z-index: 1;
+    }
+
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    
+    #container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .map-container {
+      width: 100%;
+      margin-top: 20px;
+    }
+    #map {
+      height: 600px;
+      width: 100%;
+    }
+    .manuals {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .manuals-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .manuals-column h2 {
+      margin-top: 0;
+    }
+
+    /* 하단 버튼*/
+    .button-container button,
+    .button-container a {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    
+    .button-container button:hover,
+    .button-container a:hover {
+      background-color: #000000;
+    }
+    .manuals-column {
+      border: 3px solid #000000;
+      padding: 10px;
+    }
+    body {
+      background-color: #6E6E6E;
+    }
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* 이미지 슬라이드 이미지 스타일 */
+    .slideshow-image {
+      width: 100%;
+      display: none;
+    }
+
+    .map-container {
+        width: 100%;
+      margin-top: 20px;
+    }
+
+  </style>
+
+</head>
+<body>
+<body topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" style="background-color:#F6F6F6">
+    <div class="menu" >
+      <nav class="clearfix">
+        <ul class="clearfix">
+          <li><a href="https://jomk5023.github.io/miraejigi/web.html">메인</a></li> <!--""<-여기 부분에 URL 작성하면 됨-->
+          <li><a href="https://www.floodmap.go.kr/fldara/fldaraList.do">홍수위험지도</a></li>
+          <li><a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/contents/prevent/prevent13.html?menuSeq=126">홍수 예·경보 시 행동요령</a></li>
+          <li><a href="#">뭘 넣을까? </a></li>
+          <li><a href="https://weather.naver.com/warning/07110109">뉴스</a></li>
+      </ul>
+      <a id="pull" href="#"></a>
+    </nav>
+
+
+    <img src="flood.jpg" alt="상단배너" style="width: 20%; height: auto;">
+    </div>
+  </body>
+
+  <div id="container"> 
+    <h2>           </h2>
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+    <div class="button-container">
+      <button onclick="findNextNearestShelter()">무엇을</button>
+      <button onclick="moveToCurrentLocation()">넣을까</button>
+      <a href="https://www.weather.go.kr/w/eqk-vol/search/korea.do" target="_blank" class="quake-info-button">???</a>
+    </div>
+    <img src="중단배너.png" alt="중단배너" style="width: 100%; height: auto;">
+  <div class="slideshow-container">
+    <!-- 이미지 1 -->
+    <img class="slideshow-image" src="이미지1.jpg" alt="이미지 1">
+    <!-- 이미지 2 -->
+    <img class="slideshow-image" src="이미지2.jpg" alt="이미지 2">
+    <!-- 이미지 3 -->
+    <img class="slideshow-image" src="이미지3.jpg" alt="이미지 3">
+    <!-- 이미지 4 -->
+    <img class="slideshow-image" src="이미지4.jpg" alt="이미지 4">
+    <!-- 이미지 5 -->
+    <img class="slideshow-image" src="이미지5.jpg" alt="이미지 5">
+    <!-- 이미지 6 -->
+    <img class="slideshow-image" src="이미지6.jpg" alt="이미지 6">
+    <!-- 이미지 7 -->
+    <img class="slideshow-image" src="이미지7.jpg" alt="이미지 7">
+    <!-- 이미지 8 -->
+    <img class="slideshow-image" src="이미지8.jpg" alt="이미지 8">
+
+    <div id="currentLocationText"></div>
+    <div id="nearestShelterText"></div>
+  </div>
+  
+  </div>
+  
+  <script>
+    initMap();
+
+    function showCurrentLocationText(latitude, longitude) {
+      const currentLocationText = document.getElementById("currentLocationText");
+      currentLocationText.innerHTML = `현재위치: 위도 ${latitude.toFixed(6)}, 경도 ${longitude.toFixed(6)}`;
+    }
+
+    function showNearestShelterText(nearestShelterName) {
+      const nearestShelterText = document.getElementById("nearestShelterText");
+      nearestShelterText.innerHTML = `가장 가까운 대피소는 <strong>${nearestShelterName}</strong> 입니다.`;
+    }
+        // JavaScript 코드
+        let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("slideshow-image");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 4000); // 4초마다 이미지 전환
+    }
+  </script>
+</body>
+</html>
