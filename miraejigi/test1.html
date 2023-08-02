@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+ 
+<meta charset="UTF-8">
+  
+ 
+<title>[지진]</title>
+  <style>
+   
+
+    /* Your existing CSS styles */
+  </style>
+  
+  
+  
+ 
+
+  
+<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=6lcb5pk9bx" charset="utf-8"></script>
+
+  
+
+ 
+
+
+<script>
+   
+
+    var map;
+    var markers = [];
+    var currentLocationMarker;
+    var currentLocationInfoWindow;
+
+    function initMap() {
+      getLocation();
+    }
+
+    function getCurrentAddress(latitude, longitude) {
+      // Your existing code for fetching the current address using Geocoder
+    }
+
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      var mapOptions = {
+        center: new naver.maps.LatLng(latitude, longitude),
+        zoom: 17
+      };
+      map = new naver.maps.Map(document.getElementById("map"), mapOptions);
+
+      showCurrentLocationMarker(latitude, longitude);
+
+      getCurrentAddress(latitude, longitude);
+
+      fetch('./대피소.csv')
+        .then(response => response.text())
+        .then(data => {
+          markers = parseCSVData(data);
+          displayMarkers(markers);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function getLocation() {
+      // Your existing code for getting user's location
+    }
+
+    function showError(error) {
+      alert("위치 정보를 가져올 
+
+    var map;
+    var markers = [];
+    var currentLocationMarker;
+    var currentLocationInfoWindow;
+
+    function initMap() {
+      getLocation();
+    }
+
+    function getCurrentAddress(latitude, longitude) {
+      // Your existing code for fetching the current address using Geocoder
+    }
+
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      var mapOptions = {
+        center: new naver.maps.LatLng(latitude, longitude),
+        zoom: 17
+      };
+      map = new naver.maps.Map(document.getElementById("map"), mapOptions);
+
+      showCurrentLocationMarker(latitude, longitude);
+
+      getCurrentAddress(latitude, longitude);
+
+      fetch('./대피소.csv')
+        .then(response => response.text())
+        .then(data => {
+          markers = parseCSVData(data);
+          displayMarkers(markers);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function getLocation() {
+      // Your existing code for getting user's location
+    }
+
+    function showError(error) {
+      alert("위치 정보를 
+
+    var map;
+    var markers = [];
+    var currentLocationMarker;
+    var currentLocationInfoWindow;
+
+    function initMap() {
+      getLocation();
+    }
+
+    function getCurrentAddress(latitude, longitude) {
+      // Your existing code for fetching the current address using Geocoder
+    }
+
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      var mapOptions = {
+        center: new naver.maps.LatLng(latitude, longitude),
+        zoom: 17
+      };
+      map = new naver.maps.Map(document.getElementById("map"), mapOptions);
+
+      showCurrentLocationMarker(latitude, longitude);
+
+      getCurrentAddress(latitude, longitude);
+
+      fetch('./대피소.csv')
+        .then(response => response.text())
+        .then(data => {
+          markers = parseCSVData(data);
+          displayMarkers(markers);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function getLocation() {
+      // Your existing code for getting user's location
+    }
+
+    function showError(error) {
+      alert("
+
+    var map;
+    var markers = [];
+    var currentLocationMarker;
+    var currentLocationInfoWindow;
+
+    function initMap() {
+      getLocation();
+    }
+
+    function getCurrentAddress(latitude, longitude) {
+      // Your existing code for fetching the current address using Geocoder
+    }
+
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      var mapOptions = {
+        center: new naver.maps.LatLng(latitude, longitude),
+        zoom: 17
+      };
+      map = new naver.maps.Map(document.getElementById("map"), mapOptions);
+
+      showCurrentLocationMarker(latitude, longitude);
+
+      getCurrentAddress(latitude, longitude);
+
+      fetch('./대피소.csv')
+        .then(response => response.text())
+        .then(data => {
+          markers = parseCSVData(data);
+          displayMarkers(markers);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function getLocation() {
+      // Your existing code for getting user's location
+    }
+
+    function showError(error) {
+      alert("위치 정보를 가져올 수 없습니다.");
+    }
+
+    function showCurrentLocationMarker(latitude, longitude) {
+      // Your existing code for showing the current location marker
+    }
+
+    function parseCSVData(csvData) {
+      // Your existing code for parsing CSV data and creating markers
+    }
+
+    function displayMarkers(markers) {
+      // Your existing code for displaying markers
+    }
+
+    // Other functions...
+    
+    initMap();
+
+    function showCurrentLocationText(latitude, longitude) {
+      const currentLocationText = document.getElementById("currentLocationText");
+      currentLocationText.innerHTML = `현재위치: 위도 ${latitude.toFixed(6)}, 경도 ${longitude.toFixed(6)}`;
+    }
+
+    function showNearestShelterText(nearestShelterName) {
+      const nearestShelterText = document.getElementById("nearestShelterText");
+      nearestShelterText.innerHTML = `가장 가까운 대피소는 <strong>${nearestShelterName}</strong> 입니다.`;
+    }
+
+    function navigateToNavigation() {
+      // Your existing code for navigating to the nearest shelter
+    }
+
+  </script>
+
+</
+</head>
+<body topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" style="background-color:#F6F6F6">
+  
+  <
+<div class="menu">
+    
+   
+<!-- Your existing menu code -->
+  
+ 
+</div>
+  
+ 
+<div id="container">
+    
+    <
+<h2>...</h2>
+    
+   
+<div class="map-container">
+      
+     
+<div id="map"></div>
+    
+   
+</div>
+    
+    <
+
+   
+<div id="currentLocationText"></div>
+    
+    <
+
+   
+<div id="nearestShelterText"></div>
+  
+ 
+</div>
+
+</
+</body>
+
+</
+</html>
