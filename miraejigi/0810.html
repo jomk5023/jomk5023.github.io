@@ -144,6 +144,23 @@
                         }
 
                         var oms = new OverlappingMarkerSpiderfier(map, { markersWontMove: true, markersWontHide: true });
+
+                        var clusterer = new MarkerClusterer({
+                            map: map,
+                            markers: markers,
+                            disableClickZoom: true,
+                            gridSize: 100,
+                            minClusterSize: 2,
+                            styles: [{
+                                width: 36,
+                                height: 36,
+                                anchorIcon: [18, 36],
+                                textSize: 12,
+                                textColor: '#fff',
+                                anchorText: [0, 0]
+                            }]
+                        });
+
                         for (var i = 0; i < markers.length; i++) {
                             oms.addMarker(markers[i]);
                         }
