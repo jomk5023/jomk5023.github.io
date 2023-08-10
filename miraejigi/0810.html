@@ -80,7 +80,33 @@
 </head>
 <body>
     <div id="map"></div>
-
+    <div class="navbar">
+        지진지도
+    </div>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+    <div id="sidebar" class="sidebar">
+        <div class="close-btn" id="closeBtn">&times;</div>
+        <h2>사이드바</h2>
+        <ul style="list-style-type:none">
+            <li><a href="#">메뉴 1</a></li>
+            <li><a href="#">메뉴 2</a></li>
+            <li><a href="#">메뉴 3</a></li>
+        </ul>
+    </div>
+    <script>
+ 
+        var hamburger = document.getElementById('hamburger');
+        var closeBtn = document.getElementById('closeBtn');
+        var sidebar = document.getElementById('sidebar');
+    
+        hamburger.addEventListener('click', function() {
+            sidebar.classList.add('active');
+        });
+    
+        closeBtn.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+        });
+    </script>
     <script>
         var mapOptions = {
             center: new naver.maps.LatLng(37.5665, 126.9780),
