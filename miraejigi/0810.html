@@ -81,7 +81,7 @@
 <body>
     <div id="map"></div>
     <div class="navbar">
-        지진지도
+        지진
     </div>
     <div class="hamburger" id="hamburger">&#9776;</div>
     <div id="sidebar" class="sidebar">
@@ -94,7 +94,6 @@
         </ul>
     </div>
     <script>
- 
         var hamburger = document.getElementById('hamburger');
         var closeBtn = document.getElementById('closeBtn');
         var sidebar = document.getElementById('sidebar');
@@ -106,8 +105,6 @@
         closeBtn.addEventListener('click', function() {
             sidebar.classList.remove('active');
         });
-    </script>
-    <script>
         var mapOptions = {
             center: new naver.maps.LatLng(37.5665, 126.9780),
             zoom: 14,
