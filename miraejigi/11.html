@@ -112,6 +112,7 @@
         background-color: #555;
     }
     #map {
+        position: relative;
         width: 100%;
         height: calc(100vh - 60px);
         margin-top: 50px;
@@ -124,21 +125,21 @@
     z-index: 1000;
     }
 
-    .user-location-button {
-     position: absolute;
-      bottom: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      background-color: #333;
-      color: white;
-      font-size: 24px;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 40px;
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
+ .user-location-button {
+ position: absolute;
+ bottom: 20px; // 아래에서부터의 위치 
+ right: 20px; // 오른쪽에서부터의 위치 
+ width: 40px;
+ height: 40px;
+ background-color: #333;
+ color: white;
+ font-size: 24px;
+ border-radius: 50%;
+ text-align: center;
+ line-height: 40px;
+ cursor: pointer;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ z-index: 1000;
 }
            .my-location-btn:hover {
       background-color: #555;
@@ -180,7 +181,7 @@
     <br /><br /><br /><br />
     <ul style="list-style-type:none">
         <li style="text-align: left; padding: 0 20 0 0;">
-        <h4>지진대피지도는<br />현재 위치를 확인하고, 전국 지진 대피장소 표준 데이터를 제공하며 현재 위치에서 가장 가까운 지진대피소를 알려줍니다.</h4></li>
+        <h4>지진대피지도는<br />현재 위치를 확인하고, 전국 지진 대피장소 표준 데이터를 제공받아 전국의 지진대피소 위치와 현재 위치에서 가장 가까운 지진대피소를 알 수 있습니다.</h4></li>
     </ul>
     <br />
     <h5>개발자</h5>
@@ -194,6 +195,7 @@
   </div>
 
     <script>
+  
         var map = new naver.maps.Map("map", {
         zoom: 6,
         center: new naver.maps.LatLng(36.2253017, 127.6460516),
@@ -366,6 +368,12 @@ var htmlMarker1 = {
     closeBtn.addEventListener('click', function() {
         sidebar.classList.remove('active');
     });
+          window.onload = function() {
+    var userLocationButton = document.getElementById('userLocationButton');
+    userLocationButton.style.position = "fixed";
+    userLocationButton.style.bottom = "20px";
+    userLocationButton.style.right = "20px";
+      }
     </script>
 </body>
 </html>
