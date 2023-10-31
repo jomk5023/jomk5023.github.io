@@ -2,29 +2,77 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>[지진]</title>
     <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=6lcb5pk9bx"></script>
     <script src="./markercluaster.js"></script>
     <style>
-  
+  .ol-control button,
+    .ol-attribution,
+    .ol-scale-line-inner {
+      font-family: 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif !important;
+    }
+
+ .ol-popup {
+      font-family: 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif !important;
+      font-size: 12px;
+      position: absolute;
+      background-color: white;
+      -webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+      filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #cccccc;
+      bottom: 12px;
+      left: -48px;
+      min-width: 100px;
+    }     
+
+    .ol-popup:after {
+      border-top-color: white;
+      border-width: 10px;
+      left: 48px;
+      margin-left: -10px;
+    }
+
+    .ol-popup:before {
+      border-top-color: #cccccc;
+      border-width: 11px;
+      left: 48px;
+      margin-left: -11px;
+    }
+
+    .ol-popup-closer {
+      text-decoration: none;
+      position: absolute;
+      top: 2px;
+      right: 8px;
+    }
+
+    .ol-popup-closer:after {
+      content: "✖";
+      color: #c3c3c3;
+    }
+        
   .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 10px 0;
-        font-size: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 20px;
+      z-index: 1000;
     }
     .hamburger {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        font-size: 24px;
-        cursor: pointer;
-        color: white;
+      position: fixed;
+      top: 5px;
+      left: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
     }
     .close-btn {
         position: fixed;
@@ -35,17 +83,17 @@
         color: white;
     }
     .sidebar {
-        display: none;
-        height: 100%;
-        width: 250px;
-        position: fixed;
-        text-align: center;
-        top: 0;
-        left: 0;
-        background-color: #333;
-        color: white;
-        padding-top: 20px;
-        z-index: 1000;
+      display: none;
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      text-align: center;
+      top: 0;
+      left: 0;
+      background-color: #333;
+      color: white;
+      padding-top: 20px;
+      z-index: 1000;
     }
     .sidebar.active {
         display: block;
@@ -77,14 +125,24 @@
     }
 
     .user-location-button {
-    background-color: white;
-    color: black; /* 글씨 색상을 검정색으로 변경 */
-    padding: 8px 12px;
-    border: 1px solid black;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
+     position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #333;
+      color: white;
+      font-size: 24px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
 }
+           .my-location-btn:hover {
+      background-color: #555;
+    }
 
     .user-marker {
     background-color: #ff0606;
@@ -93,6 +151,7 @@
     border-radius: 5px;
     font-size: 12px;
     }
+        
     </style>
  
 </head>
@@ -110,14 +169,29 @@
         <div class="close-btn" id="closeBtn">&times;</div>
         <h2>사이드바</h2>
         <ul style="list-style-type:none">
-            <li><a href="#">메뉴 1</a></li>
-            <li><a href="#">메뉴 2</a></li>
-            <li><a href="#">메뉴 3</a></li>
+             <li><a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/contents/prevent/prevent13.html?menuSeq=126">지진대피장소 검색</a></li>
+            <li><a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/contents/prevent/prevent09.html?menuSeq=126">지진 시 행동 요령</a></li>        
+            <li><a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/ppn/emg/SDIJKM5602.html?menuSeq=596">비상연락망</a></li>
+        <hr/>
+      <li><a href="https://djuaionelab.github.io/DA-plus/index.html">폭염</a></li>
+      <li><a href="https://3hwangg.github.io/23opensw/floodmap2.html">홍수(지방하천)</a></li>
+      <li><a href="https://3hwangg.github.io/23opensw/floodmap1.html">홍수(국가하천)</a></li>    
         </ul>
+    <br /><br /><br /><br />
+    <ul style="list-style-type:none">
+        <li style="text-align: left; padding: 0 20 0 0;">
+        <h4>지진대피지도는<br />현재 위치를 확인하고, 전국 지진 대피장소 표준 데이터를 제공하며 현재 위치에서 가장 가까운 지진대피소를 알려줍니다.</h4></li>
+    </ul>
+    <br />
+    <h5>개발자</h5>
+    <p>미래지기</p>
     </div>
     <div id="map"></div>
 
-
+    <div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+  </div>
 
     <script>
         var map = new naver.maps.Map("map", {
